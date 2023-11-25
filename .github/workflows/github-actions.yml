@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -25,3 +25,11 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: npm ci
       - run: npm run lint
+  build:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: |
+          docker login --username bugffet --password ${{ secrets.GH_PAT }}
+          docker build . --tag ghcr.io/bugffet/demo-actions:latest
+          docker push ghcr.io/bugffet/demo-actions:latest
