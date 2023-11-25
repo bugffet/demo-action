@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  check:
+  prebuild:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -27,6 +27,7 @@ jobs:
       - run: npm run lint
   build:
     runs-on: ubuntu-latest
+    needs: [prebuild]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
