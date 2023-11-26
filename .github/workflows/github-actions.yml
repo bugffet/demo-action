@@ -30,8 +30,6 @@ jobs:
     needs: [prebuild]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - run: npm ci
       - run: |
           docker login --username bugffet --password ${{ secrets.GH_PAT }} ghcr.io
           docker build . --tag ghcr.io/bugffet/demo-actions:latest
