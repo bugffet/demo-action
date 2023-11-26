@@ -11,5 +11,4 @@ spec:
       targetPort: 3000
   selector:
     app: "nextjs"
-  sessionAffinity: None
-  type: NodePort
+  type: ClusterIP
