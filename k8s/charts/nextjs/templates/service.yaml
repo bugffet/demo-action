@@ -9,8 +9,6 @@ spec:
     - port: 80
       protocol: TCP
       targetPort: 3000
-      nodePort: 80
   selector:
     app: "nextjs"
-  # type: ClusterIP
-  type: NodePort
+  type: ClusterIP
