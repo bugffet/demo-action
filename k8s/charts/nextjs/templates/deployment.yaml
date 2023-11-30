@@ -4,7 +4,7 @@ metadata:
   labels:
     app: "nextjs"
   name: "nextjs"
-  namespace: default
+  namespace: demo-nextjs
 spec:
   replicas: 1
   selector:

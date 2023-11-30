@@ -4,6 +4,7 @@ metadata:
   labels:
     app: "nextjs"
   name: "nextjs"
+  namespace: demo-nextjs
 spec:
   ports:
     - port: 80
